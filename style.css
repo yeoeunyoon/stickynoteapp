@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@300;400;500;600&display=swap");
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --note-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --note-hover-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.note {
+  font-family: 'Patrick Hand', cursive;
+  border-radius: 12px;
+  box-shadow: var(--note-shadow);
+  transition: all 0.3s ease;
+}
+
+.note:hover {
+  box-shadow: var(--note-hover-shadow);
+  transform: translateY(-5px);
+}
+
+.note::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 25%;
+  height: 25px;
+  background: rgba(0,0,0,0.1);
+  transform: translateX(-50%);
+  clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+}
+
+#new-note {
+  background: white;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: var(--note-shadow);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+#new-note:focus {
+  outline: none;
+  border-color: #4F46E5;
+  box-shadow: var(--note-hover-shadow);
+}
+
+.delete-btn {
+  opacity: 0;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.note:hover .delete-btn {
+  opacity: 1;
+}
+
+.color-picker {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: flex;
+  gap: 5px;
+}
+
+.color-option {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.color-option:hover {
+  transform: scale(1.2);
+}
